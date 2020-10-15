@@ -216,5 +216,20 @@ class DemoTest {
         assertTrue(thrown.getMessage().contains("Invalid command!"));
 
     }
-    
+
+    @Test
+    void should_return_x_negative1_y_negative1_direction_N_when_x_0_y_0_direction_N_given_command_MLMR() throws CommandNotDefinedException {
+        // given
+        int xAxis = 0;
+        int yAxis = 0;
+        char direction = 'N';
+        String command = "MLMR";
+        MarsRover marsRover = new MarsRover(xAxis, yAxis, direction, command);
+        // when
+        String actual = marsRover.executeCommand();
+
+        // then
+        assertEquals("-11N",actual);
+
+    }
 }
