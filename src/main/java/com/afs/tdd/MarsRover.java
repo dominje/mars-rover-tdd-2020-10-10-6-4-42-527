@@ -45,6 +45,8 @@ public class MarsRover {
     public void moveForward(){
         if(String.valueOf(direction).equals(NORTH)){
             yAxis += 1;
+        } else if(String.valueOf(direction).equals("S")){
+            yAxis -= 1;
         }
     }
 
