@@ -7,8 +7,10 @@ public class MarsRover {
     private char direction;
     private String command;
     public static final String FORWARD = "M";
-    public static final String TURNLEFT = "L";
+    public static final String LEFT = "L";
     public static final String NORTH = "N";
+    public static final char EAST = 'E';
+    public static final char WEST = 'W';
 
     public MarsRover(int xAxis, int yAxis, char direction, String command) {
         this.xAxis = xAxis;
@@ -20,7 +22,7 @@ public class MarsRover {
     public String executeCommand() {
         if(command.equals(FORWARD)){
             moveForward();
-        } else if(command.equals(TURNLEFT)){
+        } else if(command.equals(LEFT)){
             turnLeft();
         } else if(command.equals("R")){
             turnRight();
@@ -30,13 +32,13 @@ public class MarsRover {
 
     private void turnRight() {
         if(String.valueOf(direction).equals(NORTH)){
-            direction = 'E';
+            direction = EAST;
         }
     }
 
     private void turnLeft() {
         if(String.valueOf(direction).equals(NORTH)){
-            direction = 'W';
+            direction = WEST;
         }
     }
 
