@@ -6,6 +6,9 @@ public class MarsRover {
     private int yAxis;
     private char direction;
     private String command;
+    public static final String FORWARD = "M";
+    public static final String TURNLEFT = "L";
+    public static final String NORTH = "N";
 
     public MarsRover(int xAxis, int yAxis, char direction, String command) {
         this.xAxis = xAxis;
@@ -15,22 +18,22 @@ public class MarsRover {
     }
 
     public String executeCommand() {
-        if(command.equals("M")){
+        if(command.equals(FORWARD)){
             moveForward();
-        } else if(command.equals("L")){
+        } else if(command.equals(TURNLEFT)){
             turnLeft();
         }
         return String.valueOf(xAxis) + String.valueOf(yAxis) + direction;
     }
 
     private void turnLeft() {
-        if(String.valueOf(direction).equals("N")){
+        if(String.valueOf(direction).equals(NORTH)){
             direction = 'W';
         }
     }
 
     public void moveForward(){
-        if(String.valueOf(direction).equals("N")){
+        if(String.valueOf(direction).equals(NORTH)){
             yAxis += 1;
         }
     }
