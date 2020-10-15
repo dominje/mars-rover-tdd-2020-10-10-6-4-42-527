@@ -83,20 +83,5 @@ public class MarsRover {
         }
     }
 
-    public int getxAxis() {
-        return xAxis;
-    }
-
-    public int getyAxis() {
-        return yAxis;
-    }
-
-    public char getDirection() {
-        return direction;
-    }
-
-    public String getCommand() {
-        return command;
-    }
 
 }
