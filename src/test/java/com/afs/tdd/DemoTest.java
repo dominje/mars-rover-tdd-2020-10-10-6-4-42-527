@@ -1,11 +1,12 @@
 package com.afs.tdd;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class DemoTest {
     @Test
-    void should_return_x_0_y_1_direction_N_when_x_0_y_0_direction_N_given_command_M() {
+    void should_return_x_0_y_1_direction_N_when_x_0_y_0_direction_N_given_command_M() throws CommandNotDefinedException {
         // given
         int xAxis = 0;
         int yAxis = 0;
@@ -20,7 +21,7 @@ class DemoTest {
     }
 
     @Test
-    void should_return_x_0_y_0_direction_W_when_x_0_y_0_direction_N_given_command_L(){
+    void should_return_x_0_y_0_direction_W_when_x_0_y_0_direction_N_given_command_L() throws CommandNotDefinedException {
         // given
         int xAxis = 0;
         int yAxis = 0;
@@ -36,7 +37,7 @@ class DemoTest {
     }
 
     @Test
-    void should_return_x_0_y_0_direction_E_when_x_0_y_0_direction_N_given_command_R(){
+    void should_return_x_0_y_0_direction_E_when_x_0_y_0_direction_N_given_command_R() throws CommandNotDefinedException {
         // given
         int xAxis = 0;
         int yAxis = 0;
@@ -52,7 +53,7 @@ class DemoTest {
     }
 
     @Test
-    void should_return_x_0_y_negative1_direction_S_when_x_0_y_0_direction_S_given_command_M(){
+    void should_return_x_0_y_negative1_direction_S_when_x_0_y_0_direction_S_given_command_M() throws CommandNotDefinedException {
         // given
         int xAxis = 0;
         int yAxis = 0;
@@ -68,7 +69,7 @@ class DemoTest {
     }
 
     @Test
-    void should_return_x_0_y_0_direction_E_when_x_0_y_0_direction_S_given_command_L(){
+    void should_return_x_0_y_0_direction_E_when_x_0_y_0_direction_S_given_command_L() throws CommandNotDefinedException {
         // given
         int xAxis = 0;
         int yAxis = 0;
@@ -84,7 +85,7 @@ class DemoTest {
     }
 
     @Test
-    void should_return_x_0_y_0_direction_W_when_x_0_y_0_direction_S_given_command_R(){
+    void should_return_x_0_y_0_direction_W_when_x_0_y_0_direction_S_given_command_R() throws CommandNotDefinedException {
         // given
         int xAxis = 0;
         int yAxis = 0;
@@ -100,7 +101,7 @@ class DemoTest {
     }
 
     @Test
-    void should_return_x_1_y_0_direction_E_when_x_0_y_0_direction_E_given_command_M(){
+    void should_return_x_1_y_0_direction_E_when_x_0_y_0_direction_E_given_command_M() throws CommandNotDefinedException {
         // given
         int xAxis = 0;
         int yAxis = 0;
@@ -116,7 +117,7 @@ class DemoTest {
     }
 
     @Test
-    void should_return_x_0_y_0_direction_N_when_x_0_y_0_direction_E_given_command_L(){
+    void should_return_x_0_y_0_direction_N_when_x_0_y_0_direction_E_given_command_L() throws CommandNotDefinedException {
         // given
         int xAxis = 0;
         int yAxis = 0;
@@ -132,7 +133,7 @@ class DemoTest {
     }
 
     @Test
-    void should_return_x_0_y_0_direction_S_when_x_0_y_0_direction_E_given_command_R(){
+    void should_return_x_0_y_0_direction_S_when_x_0_y_0_direction_E_given_command_R() throws CommandNotDefinedException {
         // given
         int xAxis = 0;
         int yAxis = 0;
@@ -148,7 +149,7 @@ class DemoTest {
     }
 
     @Test
-    void should_return_x_negative1_y_0_direction_W_when_x_0_y_0_direction_W_given_command_M(){
+    void should_return_x_negative1_y_0_direction_W_when_x_0_y_0_direction_W_given_command_M() throws CommandNotDefinedException {
         // given
         int xAxis = 0;
         int yAxis = 0;
@@ -164,7 +165,7 @@ class DemoTest {
     }
 
     @Test
-    void should_return_x_0_y_0_direction_S_when_x_0_y_0_direction_W_given_command_L(){
+    void should_return_x_0_y_0_direction_S_when_x_0_y_0_direction_W_given_command_L() throws CommandNotDefinedException {
         // given
         int xAxis = 0;
         int yAxis = 0;
@@ -180,7 +181,7 @@ class DemoTest {
     }
 
     @Test
-    void should_return_x_0_y_0_direction_N_when_x_0_y_0_direction_W_given_command_R(){
+    void should_return_x_0_y_0_direction_N_when_x_0_y_0_direction_W_given_command_R() throws CommandNotDefinedException {
         // given
         int xAxis = 0;
         int yAxis = 0;
@@ -195,4 +196,25 @@ class DemoTest {
 
     }
 
+    @Test
+    void should_throw_command_not_defined_exception_when_x_0_y_0_direction_N_given_command_F() throws CommandNotDefinedException {
+        // given
+        int xAxis = 0;
+        int yAxis = 0;
+        char direction = 'N';
+        String command = "F";
+        MarsRover marsRover = new MarsRover(xAxis, yAxis, direction, command);
+        // when
+
+        CommandNotDefinedException thrown = assertThrows(
+                CommandNotDefinedException.class,
+                () -> marsRover.executeCommand(),
+                "Expected marsRover() to throw, but it didn't"
+        );
+
+        // then
+        assertTrue(thrown.getMessage().contains("Invalid command!"));
+
+    }
+    
 }
