@@ -9,8 +9,9 @@ public class MarsRover {
     public static final String FORWARD = "M";
     public static final String LEFT = "L";
     public static final String NORTH = "N";
-    public static final char EAST = 'E';
-    public static final char WEST = 'W';
+    public static final String EAST = "E";
+    public static final String WEST = "W";
+    public static final String SOUTH = "S";
 
     public MarsRover(int xAxis, int yAxis, char direction, String command) {
         this.xAxis = xAxis;
@@ -45,7 +46,7 @@ public class MarsRover {
     public void moveForward(){
         if(String.valueOf(direction).equals(NORTH)){
             yAxis += 1;
-        } else if(String.valueOf(direction).equals("S")){
+        } else if(String.valueOf(direction).equals(SOUTH)){
             yAxis -= 1;
         }
     }
