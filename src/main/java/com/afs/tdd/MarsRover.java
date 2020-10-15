@@ -23,14 +23,14 @@ public class MarsRover {
         this.command = command;
     }
 
-    public String executeCommand() {
+    public String executeCommand() throws CommandNotDefinedException{
         if(command.equals(String.valueOf(FORWARD))){
             moveForward();
         } else if(command.equals(String.valueOf(LEFT))){
             turnLeft();
         } else if(command.equals(String.valueOf(RIGHT))){
             turnRight();
-        }
+        } else {throw new CommandNotDefinedException("Invalid command!");}
         return String.valueOf(xAxis) + String.valueOf(yAxis) + String.valueOf(direction);
     }
 
