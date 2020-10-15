@@ -18,7 +18,7 @@ public class MarsRover {
         if(command.equals("M")){
             moveForward();
         }
-        return String.valueOf(xAxis + yAxis + direction);
+        return String.valueOf(xAxis) + String.valueOf(yAxis) + direction;
     }
 
     public void moveForward(){
