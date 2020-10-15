@@ -1,17 +1,20 @@
 package com.afs.tdd;
 
+import java.util.SortedMap;
+
 public class MarsRover {
 
     private int xAxis;
     private int yAxis;
     private char direction;
     private String command;
-    public static final String FORWARD = "M";
-    public static final String LEFT = "L";
-    public static final String NORTH = "N";
+    public static final char FORWARD = 'M';
+    public static final char LEFT = 'L';
+    public static final char NORTH = 'N';
     public static final char EAST = 'E';
     public static final char WEST = 'W';
-    public static final String SOUTH = "S";
+    public static final char SOUTH = 'S';
+    public static final char RIGHT = 'R';
 
     public MarsRover(int xAxis, int yAxis, char direction, String command) {
         this.xAxis = xAxis;
@@ -21,34 +24,34 @@ public class MarsRover {
     }
 
     public String executeCommand() {
-        if(command.equals(FORWARD)){
+        if(command.equals(String.valueOf(FORWARD))){
             moveForward();
-        } else if(command.equals(LEFT)){
+        } else if(command.equals(String.valueOf(LEFT))){
             turnLeft();
-        } else if(command.equals("R")){
+        } else if(command.equals(String.valueOf(RIGHT))){
             turnRight();
         }
-        return String.valueOf(xAxis) + String.valueOf(yAxis) + direction;
+        return String.valueOf(xAxis) + String.valueOf(yAxis) + String.valueOf(direction);
     }
 
     private void turnRight() {
-        if(String.valueOf(direction).equals(NORTH)){
+        if(direction == NORTH){
             direction = EAST;
         }
     }
 
     private void turnLeft() {
-        if(String.valueOf(direction).equals(NORTH)){
+        if(direction == NORTH){
             direction = WEST;
-        }else if(String.valueOf(direction).equals("S")){
+        }else if(direction == SOUTH){
             direction = EAST;
         }
     }
 
     public void moveForward(){
-        if(String.valueOf(direction).equals(NORTH)){
+        if(direction == NORTH){
             yAxis += 1;
-        } else if(String.valueOf(direction).equals(SOUTH)){
+        } else if(direction == SOUTH){
             yAxis -= 1;
         }
     }

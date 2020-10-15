@@ -10,7 +10,7 @@ class DemoTest {
         int xAxis = 0;
         int yAxis = 0;
         char direction = 'N';
-        String command = String.valueOf('M');
+        String command = "M";
         MarsRover marsRover = new MarsRover(xAxis, yAxis, direction, command);
         // when
         String actual = marsRover.executeCommand();
@@ -25,7 +25,7 @@ class DemoTest {
         int xAxis = 0;
         int yAxis = 0;
         char direction = 'N';
-        String command = String.valueOf('L');
+        String command = "L";
         MarsRover marsRover = new MarsRover(xAxis, yAxis, direction, command);
         // when
         String actual = marsRover.executeCommand();
@@ -41,7 +41,7 @@ class DemoTest {
         int xAxis = 0;
         int yAxis = 0;
         char direction = 'N';
-        String command = String.valueOf('R');
+        String command = "R";
         MarsRover marsRover = new MarsRover(xAxis, yAxis, direction, command);
         // when
         String actual = marsRover.executeCommand();
@@ -57,7 +57,7 @@ class DemoTest {
         int xAxis = 0;
         int yAxis = 0;
         char direction = 'S';
-        String command = String.valueOf('M');
+        String command = "M";
         MarsRover marsRover = new MarsRover(xAxis, yAxis, direction, command);
         // when
         String actual = marsRover.executeCommand();
