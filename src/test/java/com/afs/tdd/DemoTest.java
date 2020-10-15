@@ -51,5 +51,20 @@ class DemoTest {
 
     }
 
+    @Test
+    void should_return_x_0_y_0_direction_S_when_x_0_y_negative1_direction_S_given_command_M(){
+        // given
+        int xAxis = 0;
+        int yAxis = 0;
+        char direction = 'S';
+        String command = String.valueOf('M');
+        MarsRover marsRover = new MarsRover(xAxis, yAxis, direction, command);
+        // when
+        String actual = marsRover.executeCommand();
+
+        // then
+        assertEquals("0-1S",actual);
+
+    }
 
 }
