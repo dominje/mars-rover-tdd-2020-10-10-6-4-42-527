@@ -66,6 +66,7 @@ class DemoTest {
         assertEquals("0-1S",actual);
 
     }
+
     @Test
     void should_return_x_0_y_0_direction_E_when_x_0_y_0_direction_S_given_command_L(){
         // given
@@ -79,6 +80,22 @@ class DemoTest {
 
         // then
         assertEquals("00E",actual);
+
+    }
+
+    @Test
+    void should_return_x_0_y_0_direction_W_when_x_0_y_0_direction_S_given_command_R(){
+        // given
+        int xAxis = 0;
+        int yAxis = 0;
+        char direction = 'S';
+        String command = "R";
+        MarsRover marsRover = new MarsRover(xAxis, yAxis, direction, command);
+        // when
+        String actual = marsRover.executeCommand();
+
+        // then
+        assertEquals("00W",actual);
 
     }
 }
