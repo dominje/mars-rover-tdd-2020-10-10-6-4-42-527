@@ -22,8 +22,16 @@ public class MarsRover {
             moveForward();
         } else if(command.equals(TURNLEFT)){
             turnLeft();
+        } else if(command.equals("R")){
+            turnRight();
         }
         return String.valueOf(xAxis) + String.valueOf(yAxis) + direction;
+    }
+
+    private void turnRight() {
+        if(String.valueOf(direction).equals(NORTH)){
+            direction = 'E';
+        }
     }
 
     private void turnLeft() {
