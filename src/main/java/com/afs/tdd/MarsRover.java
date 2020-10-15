@@ -51,6 +51,8 @@ public class MarsRover {
             direction = EAST;
         }else if(direction == EAST){
             direction = NORTH;
+        }else if(direction == WEST){
+            direction = SOUTH;
         }
     }
 
