@@ -1,5 +1,6 @@
 package com.afs.tdd;
 
+import java.util.Arrays;
 import java.util.SortedMap;
 
 public class MarsRover {
@@ -24,14 +25,26 @@ public class MarsRover {
     }
 
     public String executeCommand() throws CommandNotDefinedException{
-        if(command.equals(String.valueOf(FORWARD))){
+        char[] checkIfMultipleCommands = command.toCharArray();
+        if(checkIfMultipleCommands.length == 1){
+            validateCommand(command);
+        } else{
+            for(char singleCommand :checkIfMultipleCommands) {
+                validateCommand(String.valueOf(singleCommand));
+            }
+        }
+        return String.valueOf(xAxis) + String.valueOf(yAxis) + String.valueOf(direction);
+
+    }
+
+    public void validateCommand(String singleCommand) throws CommandNotDefinedException {
+        if(singleCommand.equals(String.valueOf(FORWARD))){
             moveForward();
-        } else if(command.equals(String.valueOf(LEFT))){
+        } else if(singleCommand.equals(String.valueOf(LEFT))){
             turnLeft();
-        } else if(command.equals(String.valueOf(RIGHT))){
+        } else if(singleCommand.equals(String.valueOf(RIGHT))){
             turnRight();
         } else {throw new CommandNotDefinedException("Invalid command!");}
-        return String.valueOf(xAxis) + String.valueOf(yAxis) + String.valueOf(direction);
     }
 
     private void turnRight() {
