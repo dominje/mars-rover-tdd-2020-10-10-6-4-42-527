@@ -53,8 +53,10 @@ public class MarsRover {
     public void moveForward(){
         if(direction == NORTH){
             yAxis += 1;
-        } else if(direction == SOUTH){
+        }else if(direction == SOUTH){
             yAxis -= 1;
+        }else if(direction == EAST){
+            xAxis += 1;
         }
     }
 
