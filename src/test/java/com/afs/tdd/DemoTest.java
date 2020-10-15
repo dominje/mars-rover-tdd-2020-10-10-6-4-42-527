@@ -147,4 +147,20 @@ class DemoTest {
 
     }
 
+    @Test
+    void should_return_x_negative1_y_0_direction_W_when_x_0_y_0_direction_W_given_command_M(){
+        // given
+        int xAxis = 0;
+        int yAxis = 0;
+        char direction = 'W';
+        String command = "M";
+        MarsRover marsRover = new MarsRover(xAxis, yAxis, direction, command);
+        // when
+        String actual = marsRover.executeCommand();
+
+        // then
+        assertEquals("-10W",actual);
+
+    }
+
 }
