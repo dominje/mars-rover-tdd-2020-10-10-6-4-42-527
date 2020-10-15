@@ -61,6 +61,8 @@ public class MarsRover {
             yAxis -= 1;
         }else if(direction == EAST){
             xAxis += 1;
+        }else if(direction == WEST){
+            xAxis -=1;
         }
     }
 
