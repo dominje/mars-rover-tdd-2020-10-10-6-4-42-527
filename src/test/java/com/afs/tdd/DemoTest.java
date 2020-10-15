@@ -114,4 +114,21 @@ class DemoTest {
         assertEquals("10E",actual);
 
     }
+
+    @Test
+    void should_return_x_0_y_0_direction_N_when_x_0_y_0_direction_E_given_command_L(){
+        // given
+        int xAxis = 0;
+        int yAxis = 0;
+        char direction = 'E';
+        String command = "L";
+        MarsRover marsRover = new MarsRover(xAxis, yAxis, direction, command);
+        // when
+        String actual = marsRover.executeCommand();
+
+        // then
+        assertEquals("00N",actual);
+
+    }
+
 }
