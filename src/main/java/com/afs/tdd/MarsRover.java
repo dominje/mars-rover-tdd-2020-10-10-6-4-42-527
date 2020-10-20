@@ -8,9 +8,7 @@ import java.util.stream.Collectors;
 
 public class MarsRover extends Coordinates {
 
-    public static final char FORWARD = 'M';
-    public static final char LEFT = 'L';
-    public static final char RIGHT = 'R';
+
     private Direction dir;
 
     public MarsRover(int xAxis, int yAxis, Direction direction) {
@@ -18,29 +16,9 @@ public class MarsRover extends Coordinates {
         this.dir = direction;
     }
 
-    public String executeCommand(String command) throws CommandNotDefinedException {
 
-     Arrays.stream(command.split(",")).filter(s -> {
-         validateCommand(s);
-         return Boolean.parseBoolean(s);
-     }).collect(Collectors.toList());
-
-        return String.valueOf(getxAxis()) + String.valueOf(getyAxis()) + dir.toString().charAt(0);
-    }
-
-    public void validateCommand(String singleCommand)  {
-        if(singleCommand.equals(String.valueOf(FORWARD))){
-            moveForward(dir);
-        } else if(singleCommand.equals(String.valueOf(LEFT))){
-            turnLeft(dir);
-        } else if(singleCommand.equals(String.valueOf(RIGHT))){
-            turnRight(dir);
-        } else {throw new CommandNotDefinedException("Invalid command!");}
-
-    }
-
-    private void turnRight(Direction checkDirection) {
-        switch (checkDirection)
+    void turnRight() {
+        switch (this.dir)
         {
             case NORTH: dir = Direction.valueOf("EAST"); break;
             case SOUTH: dir = Direction.valueOf("WEST"); break;
@@ -49,8 +27,8 @@ public class MarsRover extends Coordinates {
         }
     }
 
-    private void turnLeft(Direction checkDirection) {
-        switch (checkDirection)
+    void turnLeft() {
+        switch (this.dir)
         {
             case NORTH: dir = Direction.valueOf("WEST"); break;
             case SOUTH: dir = Direction.valueOf("EAST"); break;
@@ -59,9 +37,9 @@ public class MarsRover extends Coordinates {
         }
     }
 
-    public void moveForward(Direction checkDirection){
+    public void moveForward(){
 
-        switch (checkDirection)
+        switch (this.dir)
         {
             case NORTH: yAxisIncreasePosition(); break;
             case SOUTH: yAxisDecreasePosition(); break;
@@ -69,5 +47,10 @@ public class MarsRover extends Coordinates {
             case WEST:  xAxisDecreasePosition(); break;
         }
     }
+
+    public char getDir() {
+        return dir.toString().charAt(0);
+    }
+
 
 }
