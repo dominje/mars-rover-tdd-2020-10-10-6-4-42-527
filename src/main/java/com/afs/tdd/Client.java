@@ -7,13 +7,13 @@ import java.util.stream.Collectors;
 
 public class Client {
 
-    MarsRover marsRover;
-    public static final char FORWARD = 'M';
-    public static final char LEFT = 'L';
-    public static final char RIGHT = 'R';
-    MoveForwardCommand moveForwardCommand;
-    TurnLeftCommand turnLeftCommand;
-    TurnRightCommand turnRightCommand;
+    private MarsRover marsRover;
+    private static final char FORWARD = 'M';
+    private static final char LEFT = 'L';
+    private static final char RIGHT = 'R';
+    private MoveForwardCommand moveForwardCommand;
+    private TurnLeftCommand turnLeftCommand;
+    private TurnRightCommand turnRightCommand;
 
 
     public Client(MarsRover marsRover) {
