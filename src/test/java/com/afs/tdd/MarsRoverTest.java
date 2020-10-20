@@ -17,20 +17,23 @@ class MarsRoverTest {
         String command = "M";
 
         MarsRover marsRover = new MarsRover(xAxis, yAxis, direction);
+        Client client = new Client(marsRover);
         // when
-        String actual = marsRover.executeCommand(command);
+        String actual = client.executeCommand(command);
 
         // then
         assertEquals("01N",actual);
     }
-    @Test
+
+        @Test
     void should_return_x_0_y_0_direction_W_when_x_0_y_0_direction_N_given_command_L() throws CommandNotDefinedException {
         // given
         Direction direction = Direction.valueOf("NORTH");
         String command = "L";
         MarsRover marsRover = new MarsRover(xAxis, yAxis, direction);
+        Client client = new Client(marsRover);
         // when
-        String actual = marsRover.executeCommand(command);
+        String actual = client.executeCommand(command);
 
         // then
         assertEquals("00W",actual);
@@ -43,8 +46,9 @@ class MarsRoverTest {
         Direction direction = Direction.valueOf("NORTH");
         String command = "R";
         MarsRover marsRover = new MarsRover(xAxis, yAxis, direction);
+        Client client = new Client(marsRover);
         // when
-        String actual = marsRover.executeCommand(command);
+        String actual = client.executeCommand(command);
 
         // then
         assertEquals("00E",actual);
@@ -57,8 +61,9 @@ class MarsRoverTest {
         Direction direction = Direction.valueOf("SOUTH");
         String command = "M";
         MarsRover marsRover = new MarsRover(xAxis, yAxis, direction);
+        Client client = new Client(marsRover);
         // when
-        String actual = marsRover.executeCommand(command);
+        String actual = client.executeCommand(command);
 
         // then
         assertEquals("0-1S",actual);
@@ -71,8 +76,9 @@ class MarsRoverTest {
         Direction direction = Direction.valueOf("SOUTH");
         String command = "L";
         MarsRover marsRover = new MarsRover(xAxis, yAxis, direction);
+        Client client = new Client(marsRover);
         // when
-        String actual = marsRover.executeCommand(command);
+        String actual = client.executeCommand(command);
 
         // then
         assertEquals("00E",actual);
@@ -85,8 +91,9 @@ class MarsRoverTest {
         Direction direction = Direction.valueOf("SOUTH");
         String command = "R";
         MarsRover marsRover = new MarsRover(xAxis, yAxis, direction);
+        Client client = new Client(marsRover);
         // when
-        String actual = marsRover.executeCommand(command);
+        String actual = client.executeCommand(command);
 
         // then
         assertEquals("00W",actual);
@@ -99,8 +106,9 @@ class MarsRoverTest {
         Direction direction = Direction.valueOf("EAST");
         String command = "M";
         MarsRover marsRover = new MarsRover(xAxis, yAxis, direction);
+        Client client = new Client(marsRover);
         // when
-        String actual = marsRover.executeCommand(command);
+        String actual = client.executeCommand(command);
 
         // then
         assertEquals("10E",actual);
@@ -113,8 +121,9 @@ class MarsRoverTest {
         Direction direction = Direction.valueOf("EAST");
         String command = "L";
         MarsRover marsRover = new MarsRover(xAxis, yAxis, direction);
+        Client client = new Client(marsRover);
         // when
-        String actual = marsRover.executeCommand(command);
+        String actual = client.executeCommand(command);
 
         // then
         assertEquals("00N",actual);
@@ -127,8 +136,9 @@ class MarsRoverTest {
         Direction direction = Direction.valueOf("EAST");
         String command = "R";
         MarsRover marsRover = new MarsRover(xAxis, yAxis, direction);
+        Client client = new Client(marsRover);
         // when
-        String actual = marsRover.executeCommand(command);
+        String actual = client.executeCommand(command);
 
         // then
         assertEquals("00S",actual);
@@ -141,8 +151,9 @@ class MarsRoverTest {
         Direction direction = Direction.valueOf("WEST");
         String command = "M";
         MarsRover marsRover = new MarsRover(xAxis, yAxis, direction);
+        Client client = new Client(marsRover);
         // when
-        String actual = marsRover.executeCommand(command);
+        String actual = client.executeCommand(command);
 
         // then
         assertEquals("-10W",actual);
@@ -155,8 +166,9 @@ class MarsRoverTest {
         Direction direction = Direction.valueOf("WEST");
         String command = "L";
         MarsRover marsRover = new MarsRover(xAxis, yAxis, direction);
+        Client client = new Client(marsRover);
         // when
-        String actual = marsRover.executeCommand(command);
+        String actual = client.executeCommand(command);
 
         // then
         assertEquals("00S",actual);
@@ -169,8 +181,9 @@ class MarsRoverTest {
         Direction direction = Direction.valueOf("WEST");
         String command = "R";
         MarsRover marsRover = new MarsRover(xAxis, yAxis, direction);
+        Client client = new Client(marsRover);
         // when
-        String actual = marsRover.executeCommand(command);
+        String actual = client.executeCommand(command);
 
         // then
         assertEquals("00N",actual);
@@ -183,11 +196,12 @@ class MarsRoverTest {
         Direction direction = Direction.valueOf("NORTH");
         String command = "F";
         MarsRover marsRover = new MarsRover(xAxis, yAxis, direction);
+        Client client = new Client(marsRover);
         // when
 
         CommandNotDefinedException thrown = assertThrows(
                 CommandNotDefinedException.class,
-                () -> marsRover.executeCommand(command),
+                () -> client.executeCommand(command),
                 "Expected marsRover() to throw, but it didn't"
         );
 
@@ -202,8 +216,9 @@ class MarsRoverTest {
         Direction direction = Direction.valueOf("NORTH");
         String command = "M,L,M,R";
         MarsRover marsRover = new MarsRover(xAxis, yAxis, direction);
+        Client client = new Client(marsRover);
         // when
-        String actual = marsRover.executeCommand(command);
+        String actual = client.executeCommand(command);
 
         // then
         assertEquals("-11N",actual);
